@@ -15,6 +15,6 @@ A farcaster icon library
 4. To use the font:
 
 ```html
-<i class="fc fc-farcaster"></span>
-<i class="fc fc-square-farcaster"></span>
+<i class="fc fc-farcaster"></i>
+<i class="fc fc-square-farcaster"></i>
 ```
