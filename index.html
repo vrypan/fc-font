@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fc-font</title>
+    <meta name="description" content="A farcaster icon library">
+    <link rel="stylesheet" href="styles.css">
+    <meta property="og:title" content="fc-font">
+    <meta property="og:description" content="A farcaster icon library">
+    <meta property="og:image" content="https://vrypan.github.io/fc-font/og-image.png">
+    <meta property="og:url" content="https://vrypan.github.io/fc-font">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://vrypan.github.io/fc-font/og-image.png">
+    <meta property="fc:frame" content='{"version":"next","imageUrl":"https://vrypan.github.io/fc-font/og-image.png","button":{"title":"Open repository","action":{"type":"launch_frame","url":"https://vrypan.github.io/fc-font","name":"fc-font","splashImageUrl":"https://vrypan.github.io/fc-font/splash-image.png","splashBackgroundColor":"#f5f0ec"}}}' />
+    <script type="module">
+        import { sdk } from 'https://esm.sh/@farcaster/frame-sdk'
+        
+        // Call ready when the page is loaded
+        async function rewriteLinks() {
+            const links = document.querySelectorAll("a[href^='http']");
+            for (let link of links) {
+                link.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    sdk.actions.openUrl(link.getAttribute("href"));
+                });
+            }
+        }
+        window.addEventListener('load', async () => {
+            try {
+                await sdk.actions.ready();
+                console.log('Frame is ready');
+                const ctx = await sdk.context;
+                ctx ? await rewriteLinks() : null;
+            } catch (e) {
+                console.error('Failed to initialize frame:', e);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>fc-font</h1>
+<p>A farcaster icon library</p>
+<ol>
+<li><p>Download the latest relase from <a href="https://github.com/vrypan/fc-font/releases">https://github.com/vrypan/fc-font/releases</a> and unzip/untar the files.</p>
+</li>
+<li><p>Place the <code>farcaster</code> folder in your website source.</p>
+</li>
+<li><p>Include the font in your HTML with something like</p>
+</li>
+</ol>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;farcaster/style.css&quot;&gt;
+</code></pre>
+<ol start="4">
+<li>To use the font:</li>
+</ol>
+<pre><code class="language-html">&lt;i class=&quot;fc fc-farcaster&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fc fc-square-farcaster&quot;&gt;&lt;/i&gt;
+</code></pre>
+
+        </div>
+        <div class="footer">
+            <a href="https://github.com/vrypan/fc-font" class="github-button">View on Github</a>
+        </div>
+    </div>
+</body>
+</html> 
